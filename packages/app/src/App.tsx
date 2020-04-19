@@ -1,13 +1,10 @@
 import React from 'react';
-import { test } from '@shop/ui-kit';
+import { Main } from './pages';
 
-function App() {
-  console.log(test);
+export function App() {
   return (
     <div>
-      test
+      <Main />
     </div>
   );
 }
-
-export default App;
