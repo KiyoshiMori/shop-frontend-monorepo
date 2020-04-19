@@ -1,25 +1,61 @@
 env:
   browser: true
   es6: true
-extends:
-  - 'plugin:react/recommended'
-  - 'plugin:import/recommended'
-  - airbnb
+extends: [
+  'plugin:react/recommended',
+  'plugin:import/recommended',
+  'plugin:jsx-a11y/recommended',
+  'plugin:prettier/recommended',
+  'airbnb',
+  'prettier',
+  'prettier/@typescript-eslint',
+]
+globals:
+  Atomics: 'readonly'
+  SharedArrayBuffer: 'readonly'
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
     jsx: true
-  tsconfigRootDir: './'
-  project: ['./tsconfig.json', './packages/*/tsconfig.json']
   ecmaVersion: 2018
-  sourceType: module
-plugins:
-  - react
-  - '@typescript-eslint'
-root: true
+  sourceType: 'module'
+plugins: [
+  'react',
+  '@typescript-eslint',
+  'react-hooks',
+  'jsx-a11y'
+]
 rules:
-  "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
+  'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }]
   'import/prefer-default-export': 'off'
   'import/no-default-export': 'error'
+  'import/no-cycle': 'error'
+  'react/jsx-props-no-spreading': 'off'
   'import/no-unresolved': 'off'
   'import/extensions': 'off'
+  'react/prop-types': 'off'
+  'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.tsx'] }]
+  'comma-dangle': 'off'
+  'object-curly-newline': 'off'
+  'arrow-parens': ['error', 'as-needed']
+  'react/jsx-one-expression-per-line': 'off'
+  'consistent-return': 'off'
+  'jsx-quotes': ['error', 'prefer-single']
+  'react-hooks/rules-of-hooks': 'error'
+  'react-hooks/exhaustive-deps': 'warn'
+  'no-use-before-define': 'off'
+  "react/jsx-wrap-multilines": ["error", {
+    "declaration": "parens-new-line",
+    "assignment": "parens-new-line",
+    "return": "parens-new-line",
+    "arrow": "parens-new-line",
+    "condition": "parens-new-line",
+    "logical": "ignore",
+    "prop": "ignore"
+  }]
+  prettier/prettier: ['error', {
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 120
+  }]
