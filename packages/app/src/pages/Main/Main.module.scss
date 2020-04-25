@@ -1,2 +1,15 @@
 .wrapper {
+  display: flex;
+}
+
+.sidebar {
+  width: 25%;
+  background: lightblue;
+}
+
+.storesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  margin: 64px 36px 0;
 }
